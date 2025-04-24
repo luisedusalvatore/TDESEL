@@ -1,1 +1,0 @@
-print("Luis Salvatore lindo")
