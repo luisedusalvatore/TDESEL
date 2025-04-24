@@ -14,3 +14,10 @@ def guardar_dado(rolados, estoque, guardar):
     lista.append(estoque)
     return lista
 
+def remover_dado(rolados, estoque, remover):
+    lista = []
+    rolados.append(estoque[remover])
+    del estoque[remover]
+    lista.append(rolados)
+    lista.append(estoque)
+    return lista
