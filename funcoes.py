@@ -14,15 +14,3 @@ def guardar_dado(rolados, estoque, guardar):
     lista.append(estoque)
     return lista
 
-def remover_dado(rolados, estoque, remover):
-    lista = []
-    rolados.append(estoque[remover])
-    del estoque[remover]
-    lista.append(rolados)
-    lista.append(estoque)
-    return lista
-def calcula_pontos_regra_simples(lista):
-    dicio = {1:0,2:0,3:0,4:0,5:0,6:0}
-    for numero in lista:
-        dicio[numero]+=numero
-    return dicio
