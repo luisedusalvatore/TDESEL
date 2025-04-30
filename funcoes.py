@@ -27,3 +27,8 @@ def calcula_pontos_regra_simples(lista):
     for numero in lista:
         dicio[numero]+=numero
     return dicio
+def calcula_pontos_soma(lista):
+    soma = 0
+    for pontos in lista:
+        soma += pontos
+    return soma
