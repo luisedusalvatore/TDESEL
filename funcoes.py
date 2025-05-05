@@ -125,3 +125,10 @@ def calcula_pontos_regra_avancada(lista):
         dicio['sequencia_alta'] = calcula_pontos_sequencia_alta(lista)
         dicio['sequencia_baixa'] = calcula_pontos_sequencia_baixa(lista)
         return dicio
+def faz_jogada(lista,categoria,cartela):
+    simples = calcula_pontos_regra_simples(lista)
+    avancado = calcula_pontos_regra_avancada(lista)
+    for regra in cartela.values():
+        for cat in regra.values():
+            if cat == categoria:
+                
