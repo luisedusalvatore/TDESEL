@@ -32,3 +32,19 @@ def calcula_pontos_soma(lista):
     for pontos in lista:
         soma += pontos
     return soma
+def calcula_pontos_sequencia_baixa(lista):
+    lista.sort()
+    lista2 = []
+    for i in range(len(lista)):
+        if lista[i] not in lista2:
+            lista2.append(lista[i])
+    combinacoes = [[1,2,3,4],[2,3,4,5],[3,4,5,6]]
+    for combinacao in combinacoes:
+            check = True
+            for num in combinacao:
+                if num not in lista2:
+                    check = False
+                    break
+            if check == True:
+                return 15
+    return 0
