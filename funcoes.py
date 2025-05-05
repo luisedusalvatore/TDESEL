@@ -121,11 +121,7 @@ def calcula_pontos_regra_avancada(lista):
         dicio['cinco_iguais'] = calcula_pontos_quina(lista)
         dicio['full_house'] = calcula_pontos_full_house(lista)
         dicio['quadra'] = calcula_pontos_quadra(lista)
-        simples = calcula_pontos_regra_simples(lista)
-        soma = 0
-        for pontos in calcula_pontos_regra_simples(lista).values():
-            soma += pontos
-        dicio['sem_combinacao'] = soma
+        dicio['sem_combinacao'] = calcula_pontos_soma(lista)
         dicio['sequencia_alta'] = calcula_pontos_sequencia_alta(lista)
         dicio['sequencia_baixa'] = calcula_pontos_sequencia_baixa(lista)
         return dicio
