@@ -93,7 +93,7 @@ def calcula_pontos_quadra(lista):
     resposta = 0
     check = False
     for qtd in dicio.values():
-        if 4 in qtd:
+        if qtd > 3:
             check = True
     if check == True:
         resposta = 0
