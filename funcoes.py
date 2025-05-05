@@ -83,3 +83,20 @@ def calcula_pontos_full_house(lista):
         for dado in lista:
             resposta += dado
         return resposta
+def calcula_pontos_quadra(lista):
+    dicio = {}
+    for i in range(len(lista)):
+        if lista[i] not in dicio:
+            dicio[lista[i]] = 1
+        else:
+            dicio[lista[i]]+=1
+    resposta = 0
+    check = False
+    for qtd in dicio.values():
+        if 4 in qtd:
+            check = True
+    if check == True:
+        resposta = 0
+        for dado, qtd in dicio.items():
+            resposta += qtd*dado
+    return resposta
