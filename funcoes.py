@@ -64,3 +64,22 @@ def calcula_pontos_sequencia_alta(lista):
             if check == True:
                 return 30
     return 0
+def calcula_pontos_full_house(lista):
+    dicio = {}
+    for i in range(len(lista)):
+        if lista[i] not in dicio:
+            dicio[lista[i]] = 1
+        else:
+            dicio[lista[i]]+=1
+    if len(dicio) != 2:
+        return 0
+    lista2 = []
+    for valor in dicio.values():
+        lista2.append(valor)
+    if sorted(lista2) != [2,3]:
+        return 0
+    else:
+        resposta = 0
+        for dado in lista:
+            resposta += dado
+        return resposta
