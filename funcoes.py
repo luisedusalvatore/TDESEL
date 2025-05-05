@@ -100,3 +100,18 @@ def calcula_pontos_quadra(lista):
         for dado, qtd in dicio.items():
             resposta += qtd*dado
     return resposta
+def calcula_pontos_quina(lista):
+    dicio = {}
+    for i in range(len(lista)):
+        if lista[i] not in dicio:
+            dicio[lista[i]] = 1
+        else:
+            dicio[lista[i]]+=1
+    check = False
+    for qtd in dicio.values():
+        if qtd > 4:
+            check = True
+    if check == True:
+        return 50
+    else:
+        return 0
