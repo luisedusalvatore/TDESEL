@@ -128,7 +128,8 @@ def calcula_pontos_regra_avancada(lista):
 def faz_jogada(lista,categoria,cartela):
     simples = calcula_pontos_regra_simples(lista)
     avancado = calcula_pontos_regra_avancada(lista)
-    if categoria.isdigit():
+    strings = ['cinco_iguais','full_house','quadra','sem_combinacao', 'sequencia_alta','sequencia_baixa']
+    if categoria not in strings:
         cat = int(categoria)
         cartela['regra_simples'][cat] = simples[cat]
     else: 
