@@ -165,8 +165,6 @@ def compara_cartela(lista, categoria, cartela):
     return True
 def viavel(dado):
     lista = []
-    j = 1
     for i in range(dado):
-        lista.append(str(j))
-        j +=1
+        lista.append(str(i))
     return lista
