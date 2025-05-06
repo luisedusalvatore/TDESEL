@@ -132,5 +132,5 @@ def faz_jogada(lista,categoria,cartela):
         cat = int(categoria)
         cartela['regra_simples'][cat] = simples[cat]
     except ValueError:
-        cartela['regra_avancada'][categoria] = avancado[cat]
+        cartela['regra_avancada'][categoria] = avancado[categoria]
     return cartela
