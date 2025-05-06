@@ -39,7 +39,7 @@ while contador < 12:
         cartela = faz_jogada(dados,categoria,cartela)
         contador +=1
         conta_dados=1
-    if acao == '1' and conta_dados < 3:
+    if acao == '1':
         print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
         guardar = int(input('>'))
         while guardar >= len(dados) or guardar < 0:
@@ -50,8 +50,6 @@ while contador < 12:
         guardados = f1[1]
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
-    elif acao == '3' and conta_dados >= 3:
-        print("Você já usou todas as rerrolagens.")
     if acao == '2':
         print(f'Digite o índice do dado a ser removido (0 a {len(dados)-1}):')
         remover = int(input('>'))
@@ -63,11 +61,13 @@ while contador < 12:
         guardados = f2[1]
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
-    if acao == '3':
+    if acao == '3'and conta_dados < 3:
         dados = rolar_dados(5 - len(guardados))
         conta_dados += 1
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
+    elif acao == '3' and conta_dados >= 3:
+        print("Você já usou todas as rerrolagens.")
     if acao == '4':
         imprime_cartela(cartela)
     else: 
