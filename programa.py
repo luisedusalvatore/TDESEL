@@ -27,10 +27,13 @@ lista_cartela = []
 for regra in cartela.values():
     for ponto in regra.values():
         lista_cartela.append(ponto)
-print(lista_cartela)
 while 0 in lista_cartela:
     print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:')
     acao = int(input('>'))
+    if acao == 0:
+        print('Digite a combinação desejada:')
+        categoria = input(">")
+        cartela = faz_jogada(dados,categoria,cartela)
     if acao == 1:
         print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
         guardar = int(input('>'))
@@ -47,3 +50,18 @@ while 0 in lista_cartela:
         guardados = f2[1]
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
+    if acao == 3:
+        dados = rolar_dados(5 - len(guardados))
+        print(f'Dados Rolados: {dados}')
+        print(f'Dados guardados: {guardados}')
+    if acao == 4:
+        imprime_cartela(cartela)
+    for regra in cartela.values():
+        for ponto in regra.values():
+            lista_cartela.append(ponto)
+
+print(cartela)
+soma = 0
+for valor in lista_cartela:
+    soma += valor
+print(f"Pontuação total: {soma}")
