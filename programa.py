@@ -50,7 +50,7 @@ while contador < 12:
         guardados = f1[1]
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
-    elif acao == '1' and conta_dados >= 3:
+    elif acao == '3' and conta_dados >= 3:
         print("Você já usou todas as rerrolagens.")
     if acao == '2':
         print(f'Digite o índice do dado a ser removido (0 a {len(dados)-1}):')
