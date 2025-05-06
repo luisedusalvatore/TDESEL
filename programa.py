@@ -42,7 +42,7 @@ while contador < 12:
     if acao == 1 and conta_dados < 3:
         print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
         guardar = int(input('>'))
-        while guardar > len(dados) and guardar < 0:
+        while guardar >= len(dados) or guardar < 0:
             print("Opção inválida. Tente novamente.")
             guardar = int(input('>'))
         f1 = guardar_dado(dados, guardados, guardar)
@@ -56,7 +56,7 @@ while contador < 12:
     if acao == 2:
         print(f'Digite o índice do dado a ser removido (0 a {len(dados)-1}):')
         remover = int(input('>'))
-        while remover > len(guardados) and remover < 0:
+        while remover >= len(guardados) and remover < 0:
             print("Opção inválida. Tente novamente.")
             remover = int(input('>'))
         f2 = remover_dado(dados,guardados,remover)
