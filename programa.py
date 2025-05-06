@@ -48,7 +48,6 @@ while contador < 12:
         f1 = guardar_dado(dados, guardados, guardar)
         dados = f1[0]
         guardados = f1[1]
-        conta_dados +=1
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
     elif acao == '1' and conta_dados >= 3:
@@ -66,6 +65,7 @@ while contador < 12:
         print(f'Dados guardados: {guardados}')
     if acao == '3':
         dados = rolar_dados(5 - len(guardados))
+        conta_dados += 1
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
     if acao == '4':
