@@ -128,7 +128,9 @@ def calcula_pontos_regra_avancada(lista):
 def faz_jogada(lista,categoria,cartela):
     simples = calcula_pontos_regra_simples(lista)
     avancado = calcula_pontos_regra_avancada(lista)
-    for regra in cartela.values():
-        for cat in regra.values():
-            if cat == categoria:
-                
+    try:
+        cat = int(categoria)
+        cartela['regra_simples'][cat] = simples[cat]
+    except ValueError:
+        cartela['regra_avancada'][categoria] = avancado[cat]
+    return cartela
