@@ -128,10 +128,10 @@ def calcula_pontos_regra_avancada(lista):
 def faz_jogada(lista,categoria,cartela):
     simples = calcula_pontos_regra_simples(lista)
     avancado = calcula_pontos_regra_avancada(lista)
-    try:
+    if categoria.isdigit():
         cat = int(categoria)
         cartela['regra_simples'][cat] = simples[cat]
-    except ValueError:
+    else: 
         cartela['regra_avancada'][categoria] = avancado[categoria]
     return cartela
 def imprime_cartela(cartela):
