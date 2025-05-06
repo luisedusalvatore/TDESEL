@@ -28,6 +28,7 @@ for regra in cartela.values():
     for ponto in regra.values():
         lista_cartela.append(ponto)
 while 0 in lista_cartela:
+    lista_cartela = []
     print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:')
     acao = int(input('>'))
     if acao == 0:
