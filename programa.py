@@ -52,7 +52,7 @@ while contador < 12:
         elif acao == '1':
             print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
             guardar =input('>')
-            while guardar not in viavel(dados):
+            while guardar not in viavel(len(dados)):
                 print("Opção inválida. Tente novamente.")
                 guardar = input('>')
             guardar = int(guardar)
@@ -64,7 +64,7 @@ while contador < 12:
         if acao == '2':
             print(f'Digite o índice do dado a ser removido (0 a {len(dados)-1}):')
             remover = (input('>'))
-            while remover not in viavel(guardar):
+            while remover not in viavel(len(guardar)):
                 print("Opção inválida. Tente novamente.")
                 remover = (input('>'))
             f2 = remover_dado(dados,guardados,remover)
