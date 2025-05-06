@@ -70,8 +70,6 @@ while contador < 12:
         print("Você já usou todas as rerrolagens.")
     if acao == '4':
         imprime_cartela(cartela)
-    else: 
-        print("Opção inválida. Tente novamente.")
     for regra in cartela.values():
         for ponto in regra.values():
             lista_cartela.append(ponto)
