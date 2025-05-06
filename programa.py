@@ -36,9 +36,16 @@ while contador < 12:
     if acao == '0':
         print('Digite a combinação desejada:')
         categoria = input(">")
-        cartela = faz_jogada(dados,categoria,cartela)
-        contador +=1
-        conta_dados=1
+        opcoes = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa','1','2','3','4','5','6']
+        if categoria not in opcoes:
+            print('Combinação inválida. Tente novamente.')
+        else:
+            if compara_cartela == False:
+                print('"Essa combinação já foi utilizada."')
+            elif compara_cartela == True:    
+                cartela = faz_jogada(dados,categoria,cartela)
+                contador +=1
+                conta_dados=1
     if acao == '1':
         print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
         guardar = int(input('>'))
