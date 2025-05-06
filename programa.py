@@ -52,10 +52,13 @@ while contador < 12:
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
     elif acao == 1 and conta_dados >= 3:
-        print("Opção inválida. Tente novamente.")
+        print("Você já usou todas as rerrolagens.")
     if acao == 2:
         print(f'Digite o índice do dado a ser removido (0 a {len(dados)-1}):')
         remover = int(input('>'))
+        while remover > len(guardados) and remover < 0:
+            print("Opção inválida. Tente novamente.")
+            remover = int(input('>'))
         f2 = remover_dado(dados,guardados,remover)
         dados = f2[0]
         guardados = f2[1]
