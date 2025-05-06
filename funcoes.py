@@ -125,15 +125,18 @@ def calcula_pontos_regra_avancada(lista):
         dicio['sequencia_alta'] = calcula_pontos_sequencia_alta(lista)
         dicio['sequencia_baixa'] = calcula_pontos_sequencia_baixa(lista)
         return dicio
-def faz_jogada(lista,categoria,cartela):
+def faz_jogada(lista, categoria, cartela):
     simples = calcula_pontos_regra_simples(lista)
     avancado = calcula_pontos_regra_avancada(lista)
-    strings = ['cinco_iguais','full_house','quadra','sem_combinacao', 'sequencia_alta','sequencia_baixa']
-    if categoria not in strings:
-        cat = int(categoria)
-        cartela['regra_simples'][cat] = simples[cat]
-    else: 
+    strings = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa']
+    if categoria in strings:
         cartela['regra_avancada'][categoria] = avancado[categoria]
+    else:
+        try:
+            cat = int(categoria)
+            cartela['regra_simples'][cat] = simples[cat]
+        except ValueError:
+            print("Categoria inválida. Tente novamente.")
     return cartela
 def imprime_cartela(cartela):
     print("Cartela de Pontos:")
