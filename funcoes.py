@@ -132,11 +132,8 @@ def faz_jogada(lista, categoria, cartela):
     if categoria in strings:
         cartela['regra_avancada'][categoria] = avancado[categoria]
     else:
-        try:
-            cat = int(categoria)
-            cartela['regra_simples'][cat] = simples[cat]
-        except ValueError:
-            print("Categoria inválida. Tente novamente.")
+        cat = int(categoria)
+        cartela['regra_simples'][cat] = simples[cat]
     return cartela
 def imprime_cartela(cartela):
     print("Cartela de Pontos:")
