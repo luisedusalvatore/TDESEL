@@ -32,14 +32,14 @@ conta_dados = 1
 while contador < 12:
     lista_cartela = []
     print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:')
-    acao = int(input('>'))
-    if acao == 0:
+    acao = input('>')
+    if acao == '0':
         print('Digite a combinação desejada:')
         categoria = input(">")
         cartela = faz_jogada(dados,categoria,cartela)
         contador +=1
         conta_dados=1
-    if acao == 1 and conta_dados < 3:
+    if acao == '1' and conta_dados < 3:
         print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
         guardar = int(input('>'))
         while guardar >= len(dados) or guardar < 0:
@@ -51,9 +51,9 @@ while contador < 12:
         conta_dados +=1
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
-    elif acao == 1 and conta_dados >= 3:
+    elif acao == '1' and conta_dados >= 3:
         print("Você já usou todas as rerrolagens.")
-    if acao == 2:
+    if acao == '2':
         print(f'Digite o índice do dado a ser removido (0 a {len(dados)-1}):')
         remover = int(input('>'))
         while remover >= len(guardados) and remover < 0:
@@ -64,12 +64,14 @@ while contador < 12:
         guardados = f2[1]
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
-    if acao == 3:
+    if acao == '3':
         dados = rolar_dados(5 - len(guardados))
         print(f'Dados Rolados: {dados}')
         print(f'Dados guardados: {guardados}')
-    if acao == 4:
+    if acao == '4':
         imprime_cartela(cartela)
+    else: 
+        print("Opção inválida. Tente novamente.")
     for regra in cartela.values():
         for ponto in regra.values():
             lista_cartela.append(ponto)
