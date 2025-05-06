@@ -151,3 +151,15 @@ def imprime_cartela(cartela):
         else:
             print(f"| {i}: {filler}|    |")
     print("-"*25)
+def compara_cartela(lista, categoria, cartela):
+    simples = calcula_pontos_regra_simples(lista)
+    avancado = calcula_pontos_regra_avancada(lista)
+    strings = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa']
+    if categoria in strings:
+       if cartela['regra_avancada'][categoria] != 0:
+           return False
+    else:
+        cat = int(categoria)
+        if cartela['regra_simples'][cat] != 0:
+            return False
+    return True
