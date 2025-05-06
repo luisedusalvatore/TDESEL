@@ -1,5 +1,6 @@
 from funcoes import *
-inteiros = ['1','2','3','4','5']
+
+inteiros = ['1', '2', '3', '4', '5']
 cartela = {
     'regra_simples':  {
         1:-1,
@@ -24,70 +25,84 @@ imprime_cartela(cartela)
 dados = rolar_dados(5 - len(guardados))
 print(f'Dados Rolados: {dados}')
 print(f'Dados guardados: {guardados}')
-lista_cartela = []
-for regra in cartela.values():
-    for ponto in regra.values():
-        lista_cartela.append(ponto)
 contador = 0
-conta_dados = 1
-viaveis = ['0','1','2','3','4']
+conta_dados = 0
+viaveis = ['0', '1', '2', '3', '4']
 while contador < 12:
-    lista_cartela = []
     print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:')
     acao = input('>')
     if acao in viaveis:
         if acao == '0':
             print('Digite a combinação desejada:')
             categoria = input(">")
-            opcoes = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa','1','2','3','4','5','6']
+            opcoes = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa', '1', '2', '3', '4', '5', '6']
             if categoria not in opcoes:
                 print('Combinação inválida. Tente novamente.')
             else:
-                if compara_cartela(dados,categoria,cartela) == False:
+                if compara_cartela(dados + guardados, categoria, cartela) == False:
                     print('"Essa combinação já foi utilizada."')
-                elif compara_cartela(dados,categoria,cartela) == True:    
-                    cartela = faz_jogada(dados,categoria,cartela)
-                    contador +=1
-                    conta_dados=1
+                elif compara_cartela(dados + guardados, categoria, cartela) == True:    
+                    cartela = faz_jogada(dados + guardados, categoria, cartela)
+                    contador += 1
+                    conta_dados = 0
+                    dados = rolar_dados(5) 
+                    guardados = [] 
+                    print(f'Dados Rolados: {dados}')
+                    print(f'Dados guardados: {guardados}')
         elif acao == '1':
-            print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
-            guardar =input('>')
-            while guardar not in viavel(len(dados)):
-                print("Opção inválida. Tente novamente.")
+            if not dados:
+                print("Não há dados para guardar.")
+            else:
+                print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
                 guardar = input('>')
-            guardar = int(guardar)
-            f1 = guardar_dado(dados, guardados, guardar)
-            dados = f1[0]
-            guardados = f1[1]
-            print(f'Dados Rolados: {dados}')
-            print(f'Dados guardados: {guardados}')
-        if acao == '2':
-            print(f'Digite o índice do dado a ser removido (0 a {len(dados)-1}):')
-            remover = (input('>'))
-            while remover not in viavel(len(guardar)):
-                print("Opção inválida. Tente novamente.")
-                remover = (input('>'))
-            f2 = remover_dado(dados,guardados,remover)
-            dados = f2[0]
-            guardados = f2[1]
-            print(f'Dados Rolados: {dados}')
-            print(f'Dados guardados: {guardados}')
-        if acao == '3'and conta_dados < 3:
-            dados = rolar_dados(5 - len(guardados))
-            conta_dados += 1
-            print(f'Dados Rolados: {dados}')
-            print(f'Dados guardados: {guardados}')
-        elif acao == '3' and conta_dados >= 3:
+                if guardar not in viavel(len(dados)):
+                    print("Opção inválida. Tente novamente.")
+                    continue
+                guardar = int(guardar)
+                f1 = guardar_dado(dados, guardados, guardar)
+                dados = f1[0]
+                guardados = f1[1]
+                print(f'Dados Rolados: {dados}')
+                print(f'Dados guardados: {guardados}')
+        elif acao == '2':
+            if not guardados:
+                print("Não há dados guardados para remover.")
+            else:
+                print(f'Digite o índice do dado a ser removido (0 a {len(guardados)-1}):')
+                remover = input('>')
+                if remover not in viavel(len(guardados)):
+                    print("Opção inválida. Tente novamente.")
+                    continue
+                remover = int(remover)
+                f2 = remover_dado(dados, guardados, remover)
+                dados = f2[0]
+                guardados = f2[1]
+                print(f'Dados Rolados: {dados}')
+                print(f'Dados guardados: {guardados}')
+        elif acao == '3' and conta_dados < 2:
+            if not dados:
+                print("Não há dados para rerrolar. Todos os dados estão guardados.")
+            else:
+                dados = rolar_dados(5 - len(guardados))
+                conta_dados += 1
+                print(f'Dados Rolados: {dados}')
+                print(f'Dados guardados: {guardados}')
+        elif acao == '3' and conta_dados >= 2:
             print("Você já usou todas as rerrolagens.")
-        if acao == '4':
+        elif acao == '4':
             imprime_cartela(cartela)
-        for regra in cartela.values():
-            for ponto in regra.values():
-                lista_cartela.append(ponto)
     else:
         print('Opção inválida. Tente novamente.')
 print(cartela)
 soma = 0
-for valor in lista_cartela:
-    soma += valor
+pontuacao_simples = 0
+for ponto in cartela['regra_simples'].values():
+    if ponto >= 0:
+        pontuacao_simples += ponto
+for ponto in cartela['regra_avancada'].values():
+    if ponto >= 0:
+        soma += ponto
+soma += pontuacao_simples
+if pontuacao_simples >= 63:
+    soma += 35
 print(f"Pontuação total: {soma}")
