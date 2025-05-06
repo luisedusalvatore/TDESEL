@@ -163,3 +163,10 @@ def compara_cartela(lista, categoria, cartela):
         if cartela['regra_simples'][cat] != 0:
             return False
     return True
+def viavel(dado):
+    lista = []
+    j = 1
+    for i in range(dado):
+        lista.append(str(j))
+        j +=1
+    return lista
