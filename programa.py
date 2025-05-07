@@ -46,8 +46,8 @@ while contador < 12:
                     cartela = faz_jogada(dados + guardados, categoria, cartela)
                     contador += 1
                     conta_dados = 0
-                    dados = rolar_dados(5)  # Resetar dados
-                    guardados = []  # Limpar guardados
+                    dados = rolar_dados(5) 
+                    guardados = [] 
                     print(f'Dados rolados: {dados}')
                     print(f'Dados guardados: {guardados}')
                     valid_combinacao = True
@@ -91,6 +91,8 @@ while contador < 12:
                 print(f'Dados guardados: {guardados}')
         elif acao == '3' and conta_dados >= 2:
             print("Você já usou todas as rerrolagens.")
+            print(f'Dados rolados: {dados}')  
+            print(f'Dados guardados: {guardados}') 
         elif acao == '4':
             imprime_cartela(cartela)
     else:
