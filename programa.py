@@ -50,7 +50,6 @@ while contador < 12:
                     guardados = []
                     print(f'Dados rolados: {dados}')
                     print(f'Dados guardados: {guardados}')
-                    imprime_cartela(cartela)
                     valid_combinacao = True
         elif acao == '1':
             if not dados:
