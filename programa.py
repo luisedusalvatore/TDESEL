@@ -21,7 +21,7 @@ cartela = {
 }
 dados = []
 guardados = []
-imprime_cartela(cartela)
+imprime_cartela(cartela)  
 dados = rolar_dados(5 - len(guardados))
 print(f'Dados rolados: {dados}')
 print(f'Dados guardados: {guardados}')
@@ -30,18 +30,18 @@ conta_dados = 0
 viaveis = ['0', '1', '2', '3', '4']
 while contador < 12:
     print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:')
-    acao = input('>')
+    acao = input() 
     if acao in viaveis:
         if acao == '0':
             valid_combinacao = False
             while not valid_combinacao:
                 print('Digite a combinação desejada:')
-                categoria = input(">")
+                categoria = input()
                 opcoes = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa', '1', '2', '3', '4', '5', '6']
                 if categoria not in opcoes:
                     print('Combinação inválida. Tente novamente.')
                 elif compara_cartela(dados + guardados, categoria, cartela) == False:
-                    print('"Essa combinação já foi utilizada."')
+                    print('Essa combinação já foi utilizada.') 
                 else:
                     cartela = faz_jogada(dados + guardados, categoria, cartela)
                     contador += 1
@@ -56,7 +56,7 @@ while contador < 12:
                 print("Não há dados para guardar.")
             else:
                 print('Digite o índice do dado a ser guardado (0 a 4):')
-                guardar = input('>')
+                guardar = input()
                 if guardar not in viavel(len(dados)):
                     print("Opção inválida. Tente novamente.")
                     continue
@@ -70,8 +70,8 @@ while contador < 12:
             if not guardados:
                 print("Não há dados guardados para remover.")
             else:
-                print(f'Digite o índice do dado a ser removido (0 a {len(guardados)-1}):')
-                remover = input('>')
+                print('Digite o índice do dado a ser removido (0 a 4):') 
+                remover = input()
                 if remover not in viavel(len(guardados)):
                     print("Opção inválida. Tente novamente.")
                     continue
@@ -95,11 +95,10 @@ while contador < 12:
             print(f'Dados guardados: {guardados}')
         elif acao == '4':
             imprime_cartela(cartela)
-            print(f'Dados rolados: {dados}')
+            print(f'Dados rolados: {dados}')  y
             print(f'Dados guardados: {guardados}')
     else:
         print('Opção inválida. Tente novamente.')
-print(cartela)
 soma = 0
 pontuacao_simples = 0
 for ponto in cartela['regra_simples'].values():
@@ -111,4 +110,5 @@ for ponto in cartela['regra_avancada'].values():
 soma += pontuacao_simples
 if pontuacao_simples >= 63:
     soma += 35
+imprime_cartela(cartela)
 print(f"Pontuação total: {soma}")
