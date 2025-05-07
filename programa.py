@@ -23,7 +23,7 @@ dados = []
 guardados = []
 imprime_cartela(cartela)
 dados = rolar_dados(5 - len(guardados))
-print(f'Dados Rolados: {dados}')
+print(f'Dados rolados: {dados}')
 print(f'Dados guardados: {guardados}')
 contador = 0
 conta_dados = 0
