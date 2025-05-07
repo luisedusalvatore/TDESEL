@@ -95,6 +95,8 @@ while contador < 12:
             print(f'Dados guardados: {guardados}')
         elif acao == '4':
             imprime_cartela(cartela)
+            print(f'Dados rolados: {dados}')
+            print(f'Dados guardados: {guardados}')
     else:
         print('Opção inválida. Tente novamente.')
 print(cartela)
