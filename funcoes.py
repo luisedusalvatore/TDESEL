@@ -152,17 +152,11 @@ def imprime_cartela(cartela):
             print(f"| {i}: {filler}|    |")
     print("-"*25)
 def compara_cartela(lista, categoria, cartela):
-    simples = calcula_pontos_regra_simples(lista)
-    avancado = calcula_pontos_regra_avancada(lista)
-    strings = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa']
-    if categoria in strings:
-       if cartela['regra_avancada'][categoria] != 0:
-           return False
+    if categoria in cartela['regra_avancada']:
+        return cartela['regra_avancada'][categoria] == -1
     else:
         cat = int(categoria)
-        if cartela['regra_simples'][cat] != 0:
-            return False
-    return True
+        return cartela['regra_simples'][cat] == -1
 def viavel(dado):
     lista = []
     for i in range(dado):

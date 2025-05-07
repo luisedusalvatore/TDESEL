@@ -1,6 +1,6 @@
 from funcoes import *
 
-inteiros = ['1', '2', '3', '4', '5']
+inteiros = ['1', '2', '3', '4', '5',]
 cartela = {
     'regra_simples':  {
         1:-1,
