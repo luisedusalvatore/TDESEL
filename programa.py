@@ -46,7 +46,7 @@ while contador < 12:
                     cartela = faz_jogada(dados + guardados, categoria, cartela)
                     contador += 1
                     conta_dados = 0
-                    dados = rolar_dados(5) 
+                    dados = rolar_dados(5)
                     guardados = []
                     print(f'Dados rolados: {dados}')
                     print(f'Dados guardados: {guardados}')
