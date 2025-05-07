@@ -47,9 +47,10 @@ while contador < 12:
                     contador += 1
                     conta_dados = 0
                     dados = rolar_dados(5) 
-                    guardados = [] 
+                    guardados = []
                     print(f'Dados rolados: {dados}')
                     print(f'Dados guardados: {guardados}')
+                    imprime_cartela(cartela)
                     valid_combinacao = True
         elif acao == '1':
             if not dados:
@@ -91,8 +92,8 @@ while contador < 12:
                 print(f'Dados guardados: {guardados}')
         elif acao == '3' and conta_dados >= 2:
             print("Você já usou todas as rerrolagens.")
-            print(f'Dados rolados: {dados}')  
-            print(f'Dados guardados: {guardados}') 
+            print(f'Dados rolados: {dados}')
+            print(f'Dados guardados: {guardados}')
         elif acao == '4':
             imprime_cartela(cartela)
     else:
