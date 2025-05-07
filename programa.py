@@ -48,7 +48,7 @@ while contador < 12:
                     conta_dados = 0
                     dados = rolar_dados(5)  # Resetar dados
                     guardados = []  # Limpar guardados
-                    print(f'Dados Rolados: {dados}')
+                    print(f'Dados rolados: {dados}')
                     print(f'Dados guardados: {guardados}')
                     valid_combinacao = True
         elif acao == '1':
@@ -64,7 +64,7 @@ while contador < 12:
                 f1 = guardar_dado(dados, guardados, guardar)
                 dados = f1[0]
                 guardados = f1[1]
-                print(f'Dados Rolados: {dados}')
+                print(f'Dados rolados: {dados}')
                 print(f'Dados guardados: {guardados}')
         elif acao == '2':
             if not guardados:
@@ -79,7 +79,7 @@ while contador < 12:
                 f2 = remover_dado(dados, guardados, remover)
                 dados = f2[0]
                 guardados = f2[1]
-                print(f'Dados Rolados: {dados}')
+                print(f'Dados rolados: {dados}')
                 print(f'Dados guardados: {guardados}')
         elif acao == '3' and conta_dados < 2:
             if not dados:
@@ -87,7 +87,7 @@ while contador < 12:
             else:
                 dados = rolar_dados(5 - len(guardados))
                 conta_dados += 1
-                print(f'Dados Rolados: {dados}')
+                print(f'Dados rolados: {dados}')
                 print(f'Dados guardados: {guardados}')
         elif acao == '3' and conta_dados >= 2:
             print("Você já usou todas as rerrolagens.")
