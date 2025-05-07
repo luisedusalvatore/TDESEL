@@ -1,6 +1,6 @@
 from funcoes import *
 
-inteiros = ['1', '2', '3', '4', '5',]
+inteiros = ['1', '2', '3', '4', '5']
 cartela = {
     'regra_simples':  {
         1:-1,
@@ -33,22 +33,24 @@ while contador < 12:
     acao = input('>')
     if acao in viaveis:
         if acao == '0':
-            print('Digite a combinação desejada:')
-            categoria = input(">")
-            opcoes = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa', '1', '2', '3', '4', '5', '6']
-            if categoria not in opcoes:
-                print('Combinação inválida. Tente novamente.')
-            else:
-                if compara_cartela(dados + guardados, categoria, cartela) == False:
+            valid_combinacao = False
+            while not valid_combinacao:
+                print('Digite a combinação desejada:')
+                categoria = input(">")
+                opcoes = ['cinco_iguais', 'full_house', 'quadra', 'sem_combinacao', 'sequencia_alta', 'sequencia_baixa', '1', '2', '3', '4', '5', '6']
+                if categoria not in opcoes:
+                    print('Combinação inválida. Tente novamente.')
+                elif compara_cartela(dados + guardados, categoria, cartela) == False:
                     print('"Essa combinação já foi utilizada."')
-                elif compara_cartela(dados + guardados, categoria, cartela) == True:    
+                else:
                     cartela = faz_jogada(dados + guardados, categoria, cartela)
                     contador += 1
                     conta_dados = 0
-                    dados = rolar_dados(5) 
-                    guardados = [] 
+                    dados = rolar_dados(5)  # Resetar dados
+                    guardados = []  # Limpar guardados
                     print(f'Dados Rolados: {dados}')
                     print(f'Dados guardados: {guardados}')
+                    valid_combinacao = True
         elif acao == '1':
             if not dados:
                 print("Não há dados para guardar.")
