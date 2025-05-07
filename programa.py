@@ -55,7 +55,7 @@ while contador < 12:
             if not dados:
                 print("Não há dados para guardar.")
             else:
-                print(f'Digite o índice do dado a ser guardado (0 a {len(dados)-1}):')
+                print('Digite o índice do dado a ser guardado (0 a 4):')
                 guardar = input('>')
                 if guardar not in viavel(len(dados)):
                     print("Opção inválida. Tente novamente.")
